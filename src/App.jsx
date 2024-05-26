@@ -8,6 +8,7 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import NewBeer from './pages/NewBeer/NewBeer'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -15,12 +16,14 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
+import * as beerService from './services/beerService'
 
 // styles
 import './App.css'
 
 function App() {
   const [user, setUser] = useState(authService.getUser())
+  const [beers, setBeers] = useState([])
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -31,6 +34,12 @@ function App() {
 
   const handleAuthEvt = () => {
     setUser(authService.getUser())
+  }
+
+  const handleAddBeer = async beerFormData => {
+    const newBeer = await beerService.create(beerFormData)
+    setBeers([newBeer, ...beers])
+    navigate('/beers')
   }
 
   return (
@@ -59,6 +68,14 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <ChangePassword handleAuthEvt={handleAuthEvt} />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path='/new'
+          element={
+            <ProtectedRoute user={user}>
+              <NewBeer handleAddBeer={handleAddBeer}/>
             </ProtectedRoute>
           }
         />
