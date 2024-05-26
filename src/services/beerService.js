@@ -19,6 +19,18 @@ async function create(beerFormData){
   }
 }
 
+async function index(){
+  try {
+    const res = await fetch(BASE_URL, {
+      headers: {'Authorization': `Bearer ${tokenService.getToken()}`}
+    })
+    return res.json()
+  } catch (err) {
+    console.log(err)
+  }
+}
+
 export {
   create,
+  index
 }

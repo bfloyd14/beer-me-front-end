@@ -1,5 +1,5 @@
 // npm modules
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 // pages
@@ -9,6 +9,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import NewBeer from './pages/NewBeer/NewBeer'
+import BeerList from './pages/BeerList/BeerList'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -35,6 +36,15 @@ function App() {
   const handleAuthEvt = () => {
     setUser(authService.getUser())
   }
+
+  useEffect(() =>{
+    const fetchAllBeers = async () => {
+      const beersData = await beerService.index()
+      setBeers(beersData)
+    }
+    if (user) fetchAllBeers()
+  }, [user])
+
 
   const handleAddBeer = async beerFormData => {
     const newBeer = await beerService.create(beerFormData)
@@ -78,6 +88,14 @@ function App() {
               <NewBeer handleAddBeer={handleAddBeer}/>
             </ProtectedRoute>
           }
+        />
+        <Route 
+          path='/beers' 
+          element={
+            <ProtectedRoute user={user}>
+              <BeerList beers={beers} />
+            </ProtectedRoute>
+        }
         />
       </Routes>
     </>
