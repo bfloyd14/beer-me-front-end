@@ -37,6 +37,7 @@ function App() {
     setUser(authService.getUser())
   }
 
+  
   useEffect(() =>{
     const fetchAllBeers = async () => {
       const beersData = await beerService.index()
@@ -44,6 +45,7 @@ function App() {
     }
     if (user) fetchAllBeers()
   }, [user])
+
 
 
   const handleAddBeer = async beerFormData => {

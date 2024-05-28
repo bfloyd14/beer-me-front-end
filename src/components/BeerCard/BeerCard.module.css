@@ -1,0 +1,84 @@
+.container {
+  width: 300px;
+  height: 220px;
+  padding: 14px 21px;
+  border-radius: 5px;
+  border: 1px solid ;
+  background-color: #014e86cd;
+  margin: 5px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.87);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container:hover {
+  background-color: rgba(255, 255, 255, 0.87);
+  color: #59595c;
+}
+
+.container header {
+  margin-bottom: 14px;
+}
+
+.container span {
+  display: flex;
+  align-items: center;
+  margin: 7px 0px 12px 0px;
+  justify-content: space-between;
+}
+
+.container span img {
+  margin: 0;
+  width: 32px;
+	height: 32px;
+  opacity: .8;
+  padding: 3px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+
+.container h1 {
+  margin: 0;
+  font-size: 19px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+}
+
+.container p {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  overflow: hidden;
+  line-height: 1.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+	word-break: break-all;
+  text-align-last: left;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+}
+
+.container div h4 {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.container div h5 {
+  font-size: 11px;
+}
+
+.container div > img {
+  width: 30px;
+	height: 30px;
+	object-fit: cover;
+}
+
+.container div section img {
+  width: 14px;
+	height: 14px;
+}

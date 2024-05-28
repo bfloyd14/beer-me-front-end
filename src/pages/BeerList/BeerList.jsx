@@ -1,20 +1,19 @@
-//pages
+//components
 import BeerCard from '../../components/BeerCard/BeerCard'
 
 //css
 import styles from './BeerList.module.css'
 
 const BeerList = (props) => {
-  console.log(props.beers.name)
+  console.log(props)
+  console.log(props.beers)
   return ( 
     <main className={styles.container}>
-      {/* {props.beers.map(beer => {
-        <BeerCard key={beer.id} beer={beer}/> */}
-      {/* })} */}
-      
-      {props.beers.map(beer =>{
-        {beer.name}
-      })}
+      {props.beers.map(beer => 
+        <BeerCard key={beer._id} beer={beer}/> 
+        
+      )}
+      {props.beer}
       
 
     </main>
