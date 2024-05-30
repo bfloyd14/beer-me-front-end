@@ -21,6 +21,7 @@ import * as beerService from './services/beerService'
 
 // styles
 import './App.css'
+import BeerDetails from './pages/BeerDetails/BeerDetails'
 
 function App() {
   const [user, setUser] = useState(authService.getUser())
@@ -97,6 +98,14 @@ function App() {
             <ProtectedRoute user={user}>
               <BeerList beers={beers} />
             </ProtectedRoute>
+        }
+        />
+        <Route 
+        path='/beers/:beerId'
+        element={
+          <ProtectedRoute user={user}>
+            <BeerDetails user={user}/>
+          </ProtectedRoute>
         }
         />
       </Routes>

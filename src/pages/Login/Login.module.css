@@ -3,6 +3,7 @@ input {
   padding: 4px 8px;
   font-size: 16px;
   width: 300px;
+  border-radius: 2px;
 }
 
 input[type="file"] {
@@ -28,6 +29,8 @@ input[type="file"] {
   flex-direction: column;
   align-items: center;
   margin-bottom: 50px;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .label {
@@ -36,6 +39,7 @@ input[type="file"] {
   justify-content: end;
   align-items: center;
   margin-bottom: 8px;
+  
 }
 
 .button {

@@ -30,7 +30,19 @@ async function index(){
   }
 }
 
+async function show(beerId){
+  try {
+    const res = await fetch(`${BASE_URL}/${beerId}`, {
+      headers: {'Authorization': `Bearer ${tokenService.getToken()}`}
+    })
+    return res.json()
+  } catch (err) {
+    console.log(err)
+  }
+}
+
 export {
   create,
-  index
+  index,
+  show,
 }

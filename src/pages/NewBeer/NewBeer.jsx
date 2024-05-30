@@ -114,7 +114,7 @@ const NewBeer = (props) => {
             onChange={handleChange}
           /> %
         </label>
-        <div>
+        <div className={styles.button}>
           <button type="submit">Create</button>
         </div>
       </form>
