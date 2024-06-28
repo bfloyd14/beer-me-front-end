@@ -10,10 +10,22 @@
   align-items: center;
 }
 
+
+
+select {
+  margin-left: 20px;
+}
+
 .container {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: rgb(250, 249, 247);
+  width: 700px; 
+  margin-top: 25px;
+  margin-left: 130px;
+  padding-bottom: 25px;
 }
 

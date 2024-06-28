@@ -27,7 +27,7 @@ const NewBeer = (props) => {
     <div className={styles.container}>
       <h1>Create a Beer Post</h1>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
-        <label htmlFor="name-input">
+        <label className={styles.label}>
           Name
           <input
             required
@@ -37,8 +37,8 @@ const NewBeer = (props) => {
             onChange={handleChange}
           />
         </label>
-        <label htmlFor="category-input">
-          Beer Category
+        <label className={styles.label}>
+          Category
           <select
             required
             name="category"
@@ -52,7 +52,7 @@ const NewBeer = (props) => {
             <option value="Hard Seltzer">Hard Seltzer</option>
           </select>
         </label>
-        <label htmlFor="style-input">
+        <label className={styles.label}>
           Beer Style
           <select
             required
@@ -94,7 +94,7 @@ const NewBeer = (props) => {
             <option value="Barrel Aged">Barrel Aged</option>
           </select>
         </label>
-        <label htmlFor="brewery-input">
+        <label className={styles.label}>
           Brewery
           <input
             required
@@ -104,8 +104,9 @@ const NewBeer = (props) => {
             onChange={handleChange}
           />
         </label>
-        <label htmlFor="abv-input">
-          ABV (Alcohol By Volume)
+        <label className={styles.label}>
+          Alcohol 
+          <br/>By Volume
           <input
             required
             type="Number"

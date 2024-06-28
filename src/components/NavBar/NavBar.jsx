@@ -19,11 +19,12 @@ const NavBar = ({ user, handleLogout }) => {
   const protectedLinks = (
     <ul>
       {/* <li>{profile.name}'s Profile</li> */}
+      <li> <NavLink to="/auth/change-password">Change Password
+      </NavLink></li>
       <li><NavLink to='/new'>New Beer</NavLink></li>
       <li><NavLink to='/beers'>Beers</NavLink></li>
       <li><NavLink to="/profiles">Profiles</NavLink></li>
-      <li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
-      <li><NavLink to="/auth/change-password">Change Password</NavLink></li>
+      <li><NavLink to="" onClick={handleLogout}>Logout</NavLink></li>
     </ul>
   )
 

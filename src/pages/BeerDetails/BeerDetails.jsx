@@ -1,6 +1,9 @@
 //css
 import styles from './BeerDetails.module.css'
 
+//components
+import AuthorInfo from '../../components/AuthorInfo/AuthorInfo'
+
 //npm modules
 import { useState, useEffect } from 'react'
 import { useParams, NavLink } from 'react-router-dom'
@@ -9,13 +12,11 @@ import { useParams, NavLink } from 'react-router-dom'
 import * as beerService from '../../services/beerService'
 
 const BeerDetails = (props) => {
-
-  
   const [beers, setBeers] = useState(null)
   const { beerId } = useParams()
   
 useEffect(() =>{
-  const fetchBeer = async() => {
+  const fetchBeer = async () => {
     const beerData = await beerService.show(beerId)
     setBeers(beerData)
     console.log(beerData)
@@ -24,29 +25,22 @@ useEffect(() =>{
 }, [beerId])
 
   return ( 
-    <main className={styles.container}>
-    <article>
-      <header>
-        {/* <h3>{props.beer.category.toUpperCase()}</h3>
-        <h1>{props.beer.name}</h1> */}
-        <span>
-          {/* <AuthorInfo content={beer} /> */}
-          {/* {beers.author._id === props.user.profile && */}
-            <>
-              <NavLink to='/blogs/edit' state={beers}>
-                <button>Edit</button>
-              </NavLink>
-              <button>Delete
-              </button>
-            </>
-          {/* } */}
-        </span>
-      </header>
-      {/* <p>{beers.style}</p> */}
-    </article>
-    
-  </main>
-
+    <div className={styles.container}>
+      <div className={styles.details}>
+      {beers.name}
+      {/* {props.user === beers.user.profile &&  */}
+      <>
+      <div className={styles.button}>
+        <NavLink to='/blogs/edit' state={beers}>
+          <button>Edit</button>
+        </NavLink>
+        <button>Delete
+        </button>
+      </div>
+      </>
+      {/* } */}
+      </div>
+    </div>
   )
 }
 

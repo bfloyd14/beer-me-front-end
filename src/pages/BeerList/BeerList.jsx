@@ -8,15 +8,14 @@ const BeerList = (props) => {
   console.log(props)
   console.log(props.beers)
   return ( 
-    <main className={styles.container}>
+    <div className={styles.container}>
       {props.beers.map(beer => 
         <BeerCard key={beer._id} beer={beer}/> 
-        
       )}
       {props.beer}
       
 
-    </main>
+    </div>
   )
 }
 

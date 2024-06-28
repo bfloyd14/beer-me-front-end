@@ -5,11 +5,9 @@ import styles from './BeerCard.module.css'
 import { NavLink } from 'react-router-dom'
 
 const BeerCard = ({beer}) => {
-console.log(beer)
-console.log(beer.name)
   return ( 
     <NavLink to={`/beers/${beer._id}`}>
-      <article className={styles.container}>
+      <div className={styles.container}>
         <header>
           <span>
           <h1>{beer.name}</h1>
@@ -17,7 +15,7 @@ console.log(beer.name)
           {beer.author.name}
         </header>
         <p>{beer.brewery}</p>
-      </article>
+      </div>
     </NavLink>
     
   )
