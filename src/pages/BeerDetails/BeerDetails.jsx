@@ -3,6 +3,7 @@ import styles from './BeerDetails.module.css'
 
 //components
 import AuthorInfo from '../../components/AuthorInfo/AuthorInfo'
+import NewReview from '../../components/NewReview/NewReview'
 
 //npm modules
 import { useState, useEffect } from 'react'
@@ -15,20 +16,30 @@ const BeerDetails = (props) => {
   const [beers, setBeers] = useState(null)
   const { beerId } = useParams()
   
-useEffect(() =>{
+  useEffect(() =>{
   const fetchBeer = async () => {
     const beerData = await beerService.show(beerId)
     setBeers(beerData)
     console.log(beerData)
   }
   fetchBeer()
-}, [beerId])
+  }, [beerId])
+
+  if(!beers) return 'Loading your beer....'
 
   return ( 
     <div className={styles.container}>
       <div className={styles.details}>
-      {beers.name}
-      {/* {props.user === beers.user.profile &&  */}
+        <div className={styles.brewery}>
+          Brewery: {beers.brewery}  
+        </div>
+        <div className={styles.beer}>
+          Name: {beers.name}
+        </div>
+        <div className={styles.alcohol}>
+          Alcohol By Volume: {beers.abv}%
+        </div>
+
       <>
       <div className={styles.button}>
         <NavLink to='/blogs/edit' state={beers}>
@@ -38,7 +49,10 @@ useEffect(() =>{
         </button>
       </div>
       </>
-      {/* } */}
+      <div className={styles.reviews}>
+        <h1>Reviews</h1>
+        <NewReview /> 
+      </div>  
       </div>
     </div>
   )
