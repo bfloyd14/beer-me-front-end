@@ -41,8 +41,38 @@ async function show(beerId){
   }
 }
 
+async function deleteBeer(beerId){
+  try {
+    const res = await fetch(`${BASE_URL}/${beerId}`, {
+      method: 'DELETE',
+      headers: {'Authorization': `Bearer ${tokenService.getToken()}`}
+    })
+    return res.json()
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+async function update(beerFormData){
+  try {
+    const res = await fetch(`${BASE_URL}/${beerFormData._id}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(beerFormData)
+    })
+    return res.json()
+  } catch (err) {
+    console.log(err)
+  }
+}
+
 export {
   create,
   index,
   show,
+  deleteBeer as delete,
+  update,
 }

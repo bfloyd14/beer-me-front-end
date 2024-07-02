@@ -10,6 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import NewBeer from './pages/NewBeer/NewBeer'
 import BeerList from './pages/BeerList/BeerList'
+import EditBeer from './pages/EditBeer/EditBeer'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -52,6 +53,18 @@ function App() {
   const handleAddBeer = async beerFormData => {
     const newBeer = await beerService.create(beerFormData)
     setBeers([newBeer, ...beers])
+    navigate('/beers')
+  }
+
+  const handleDeleteBeer = async beerId => {
+    const deletedBeer = await beerService.delete(beerId)
+    setBeers(beers.filter(beer => beer._id !== deletedBeer._id))
+    navigate('/beers')
+  }
+
+  const handleUpdateBeer = async beerFormData => {
+    const updatedBeer = await beerService.update(beerFormData)
+    setBeers(beers.map(beer => updatedBeer._id === beer._id ? updatedBeer : beer))
     navigate('/beers')
   }
 
@@ -104,7 +117,15 @@ function App() {
         path='/beers/:beerId'
         element={
           <ProtectedRoute user={user}>
-            <BeerDetails user={user}/>
+            <BeerDetails user={user} handleDeleteBeer = {handleDeleteBeer}/>
+          </ProtectedRoute>
+        }
+        />
+        <Route 
+        path='/beers/edit'
+        element={
+          <ProtectedRoute user={user}>
+            <EditBeer user={user} beers={beers} handleUpdateBeer = {handleUpdateBeer}/>
           </ProtectedRoute>
         }
         />

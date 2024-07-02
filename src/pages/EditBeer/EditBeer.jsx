@@ -1,32 +1,28 @@
 //npm modules
-import { useState } from 'react'
+import { useState } from "react"
+import { useLocation } from "react-router-dom"
 
 //css
-import styles from './NewBeer.module.css'
+import styles from './EditBeer.module.css'
 
-const NewBeer = (props) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    category: 'Domestic',
-    style: 'Ale',
-    Brewery: '',
-    abv: '0.0',
-  })
+const EditBeer = (props) => {
+  const {state} = useLocation()
+  const [formData, setFormData] = useState(state)
 
-
-  const handleSubmit = evt => {
-    evt.preventDefault()
-    props.handleAddBeer(formData)
+  const handleChange = (evt) => {
+    setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
-  const handleChange = evt => {
-    setFormData({...formData, [evt.target.name]: evt.target.value})
+  const handleSubmit = (evt) => {
+    evt.preventDefault()
+    props.handleUpdateBeer(formData)
   }
 
   return ( 
+    <>
     <div className={styles.container}>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
-      <h1>Create a Beer Post</h1>
+      <h1>Edit {props.beers.name}</h1>
         <label className={styles.label}>
           Name
           <input
@@ -34,8 +30,9 @@ const NewBeer = (props) => {
             type="text"
             name="name"
             id="name-input"
+            value={formData.name}
             onChange={handleChange}
-          />
+            />
         </label>
         <label className={styles.label}>
           Category
@@ -43,8 +40,9 @@ const NewBeer = (props) => {
             required
             name="category"
             id="catgory-input"
+            value={formData.category}
             onChange={handleChange}
-          >
+            >
             <option value="Domestic">Domestic</option>
             <option value="Import">Import</option>
             <option value="Craft">Craft</option>
@@ -59,8 +57,9 @@ const NewBeer = (props) => {
             type="text"
             name="style"
             id="style-input"
+            value={formData.style}
             onChange={handleChange}
-          >
+            >
             <option value="Ale">Ale</option>
             <option value="Lager">Lager</option>
             <option value="IPA">IPA</option>
@@ -101,8 +100,9 @@ const NewBeer = (props) => {
             type="text"
             name="brewery"
             id="brewery-input"
+            value={formData.brewery}
             onChange={handleChange}
-          />
+            />
         </label>
         <label className={styles.label}>
           Alcohol 
@@ -112,16 +112,17 @@ const NewBeer = (props) => {
             type="Number"
             name="abv"
             id="abv-input"
+            value={formData.abv}
             onChange={handleChange}
-          /> %
+            /> %
         </label>
         <div className={styles.button}>
-          <button type="submit">Create</button>
+          <button type="submit">Save</button>
         </div>
       </form>
     </div>
-
+    </>
   )
 }
 
-export default NewBeer 
+export default EditBeer

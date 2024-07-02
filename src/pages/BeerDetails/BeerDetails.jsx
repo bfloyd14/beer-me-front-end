@@ -36,16 +36,22 @@ const BeerDetails = (props) => {
         <div className={styles.beer}>
           Name: {beers.name}
         </div>
+        <div className={styles.category}>
+          Category: {beers.category}
+        </div>
+        <div className={styles.style}>
+          Style: {beers.style}
+        </div>
         <div className={styles.alcohol}>
           Alcohol By Volume: {beers.abv}%
         </div>
 
       <>
       <div className={styles.button}>
-        <NavLink to='/blogs/edit' state={beers}>
+        <NavLink to='/beers/edit' state={beers}>
           <button>Edit</button>
         </NavLink>
-        <button>Delete
+        <button onClick={() => props.handleDeleteBeer(beers._id)}>Delete
         </button>
       </div>
       </>
