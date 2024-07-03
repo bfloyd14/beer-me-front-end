@@ -116,6 +116,27 @@ const EditBeer = (props) => {
             onChange={handleChange}
             /> %
         </label>
+        <label className={styles.label}>
+        Review
+        <textarea 
+          required
+          name="feedback"
+          placeholder='Add a Review'
+          value={formData.feedback}
+          onChange={handleChange}
+        />
+      </label>
+      <label className={styles.label}>
+        Rating (1-5): &nbsp;
+        <input 
+        type="Number"
+        name="stars"
+        min="0"
+        max="5"
+        value={formData.stars}
+        onChange={handleChange} 
+        />
+    </label>
         <div className={styles.button}>
           <button type="submit">Save</button>
         </div>

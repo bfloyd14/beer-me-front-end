@@ -2,7 +2,6 @@
 import styles from './BeerDetails.module.css'
 
 //components
-import AuthorInfo from '../../components/AuthorInfo/AuthorInfo'
 import NewReview from '../../components/NewReview/NewReview'
 import Reviews from '../../components/Reviews/Reviews'
 
@@ -25,6 +24,17 @@ const BeerDetails = (props) => {
   }
   fetchBeer()
   }, [beerId])
+
+  const handleAddReview = async reviewFormData => {
+    const newReview = await beerService.createReview(beerId, reviewFormData)
+    setBeers({...beers, reviews: [...beers.reviews, newReview]})
+  }
+
+  // const handleDeleteReview = async beerId => {
+  //   const deletedBeer = await beerService.delete(beerId)
+  //   setBeers(beers.filter(beer => beer._id !== deletedBeer._id))
+  //   navigate('/beers')
+  // }
 
   if(!beers) return 'Loading your beer....'
 
@@ -66,13 +76,14 @@ const BeerDetails = (props) => {
       <div className={styles.reviews}>
         <h1>Reviews</h1>
         <Reviews 
-        comments={beers.reviews.comment}
+        reviews={beers.reviews}
         user={props.user}
         beerId={beerId}
+        // handleDeleteReview={handleDeleteReview}
         />
       </div>
       <div className={styles.newReview}>
-        <NewReview /> 
+        <NewReview handleAddReview={handleAddReview} /> 
         </div>  
       </div>
     </div>

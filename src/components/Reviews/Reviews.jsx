@@ -1,9 +1,21 @@
+import ReviewCard from "../ReviewCard/ReviewCard"
+
 const Reviews = (props) => {
   
-  if (!props.comments) return <h4>No Comments</h4>
-  
+  if (!props.reviews) return <h4>No Reviews</h4>
   return ( 
-    <h2>Post a Review</h2>
+    <>
+    {props.reviews.map(review => 
+    <ReviewCard
+    key={review._id}
+    user={props.user}
+    beerId={props.beerId}
+    reviews={props.reviews}
+    />
+
+    )}
+
+    </>
   )
 }
 

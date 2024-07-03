@@ -5,7 +5,7 @@ import { useState } from 'react'
 import styles from './NewReview.module.css'
 
 
-const NewReview = () => {
+const NewReview = ({handleAddReview}) => {
   const [formData, setFormData] = useState({
     comment: '',
     rating: '',
@@ -17,7 +17,11 @@ const NewReview = () => {
 
   const handleSubmit = async evt => {
     evt.preventDefault()
-    setFormData()
+    handleAddReview(formData)
+    setFormData({
+      comment: '',
+      rating: ''
+    })
     }
 
   return ( 
