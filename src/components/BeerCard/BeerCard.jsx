@@ -4,6 +4,9 @@ import styles from './BeerCard.module.css'
 //npm modules
 import { NavLink } from 'react-router-dom'
 
+//components
+import AuthorInfo from '../AuthorInfo/AuthorInfo'
+
 const BeerCard = ({beer}) => {
   return ( 
     <NavLink to={`/beers/${beer._id}`}>
@@ -12,12 +15,10 @@ const BeerCard = ({beer}) => {
         <div className={styles.title}>
           <h1>{beer.brewery}</h1>
           <h2>{beer.name}</h2>
-          <h4>{beer.rating}</h4>
+          <h4>Avg. Rating: {beer.stars}</h4>
         </div>
         <div className={styles.author}>
-          <img src={beer.author.photo} alt="" />
-          {beer.author.name} <br/>
-          {beer.author.createdAt}
+          <AuthorInfo beer={beer}/>
         </div>
         </div>
       </div>

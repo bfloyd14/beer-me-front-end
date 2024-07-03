@@ -7,7 +7,8 @@ import styles from './NewReview.module.css'
 
 const NewReview = () => {
   const [formData, setFormData] = useState({
-    text: ''
+    comment: '',
+    rating: '',
   })
   
   const handleChange = evt => {
@@ -21,14 +22,26 @@ const NewReview = () => {
 
   return ( 
     <form onSubmit={handleSubmit} className={styles.container}>
-      <h1>New Review</h1>
+    <h2>Add Review</h2>
+    <label className={styles.label}>
+      Review
       <textarea 
         required
-        name="text"
-        value={formData.text}
+        name="comment"
         placeholder='Add a Review'
         onChange={handleChange}
       />
+    </label>
+    <label className={styles.label}>
+    Rating (1-5): &nbsp;
+    <input 
+    type="Number"
+    name="rating"
+    min="0"
+    max="5"
+    onChange={handleChange} 
+    />
+    </label>
       <div className={styles.button}>
       <button type="submit">Create</button>
       </div>

@@ -1,6 +1,9 @@
 //npm modules
 import { useState } from 'react'
 
+//components
+import NewReview from '../../components/NewReview/NewReview'
+
 //css
 import styles from './NewBeer.module.css'
 
@@ -115,6 +118,25 @@ const NewBeer = (props) => {
             onChange={handleChange}
           /> %
         </label>
+        <label className={styles.label}>
+        Review
+        <textarea 
+          required
+          name="feedback"
+          placeholder='Add a Review'
+          onChange={handleChange}
+        />
+      </label>
+      <label className={styles.label}>
+        Rating (1-5): &nbsp;
+        <input 
+        type="Number"
+        name="stars"
+        min="0"
+        max="5"
+        onChange={handleChange} 
+        />
+    </label>
         <div className={styles.button}>
           <button type="submit">Create</button>
         </div>
