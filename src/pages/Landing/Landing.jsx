@@ -2,7 +2,7 @@
 import styles from './Landing.module.css'
 
 //assets
-import beerLogo from '../../assets/images/beer-logo.jpg'
+import beerLogo from '../../assets/images/beerme-logo.png'
 
 const Landing = ({ user }) => {
   return (

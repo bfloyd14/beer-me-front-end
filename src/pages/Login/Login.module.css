@@ -1,12 +1,13 @@
-input {
-  margin-left: 16px;
-  padding: 4px 8px;
-  font-size: 16px;
-  width: 300px;
-  border-radius: 2px;
-}
 
 .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.login {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,8 +16,7 @@ input {
   border-radius: 10px;
   background-color: rgb(250, 249, 247);
   width: 700px; 
-  margin-top: 25px;
-  margin-left: 130px;
+  margin-top: 75px;
 }
 
 .message {
@@ -51,4 +51,12 @@ input {
 
 .form > label:last-of-type {
   margin-bottom: 16px;
+}
+
+input {
+  margin-left: 16px;
+  padding: 4px 8px;
+  font-size: 16px;
+  width: 300px;
+  border-radius: 2px;
 }
