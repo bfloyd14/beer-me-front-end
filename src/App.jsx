@@ -1,6 +1,6 @@
 // npm modules
 import { useEffect, useState } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
 
 // pages
 import Signup from './pages/Signup/Signup'
@@ -11,6 +11,7 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import NewBeer from './pages/NewBeer/NewBeer'
 import BeerList from './pages/BeerList/BeerList'
 import EditBeer from './pages/EditBeer/EditBeer'
+import ProfileDetails from './pages/ProfileDetails/ProfileDetails'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -19,6 +20,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 // services
 import * as authService from './services/authService'
 import * as beerService from './services/beerService'
+
 
 // styles
 import './App.css'
@@ -78,6 +80,14 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <Profiles />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profiles/:profileId"
+          element={
+            <ProtectedRoute user={user}>
+              <ProfileDetails user={user} />
             </ProtectedRoute>
           }
         />

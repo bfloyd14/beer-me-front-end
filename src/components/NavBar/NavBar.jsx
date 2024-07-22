@@ -18,9 +18,7 @@ const NavBar = ({ user, handleLogout }) => {
 
   const protectedLinks = (
     <ul>
-      {/* <li>{profile.name}'s Profile</li> */}
-      <li> <NavLink to="/auth/change-password">Change Password
-      </NavLink></li>
+      <NavLink to='/profiles/:profileId'><img className={styles.image} src={user.profile.photo} alt="beer-me logo" /></NavLink>
       <li><NavLink to='/new'>New Beer</NavLink></li>
       <li><NavLink to='/beers'>Beers</NavLink></li>
       <li><NavLink to="/profiles">Profiles</NavLink></li>
@@ -30,7 +28,6 @@ const NavBar = ({ user, handleLogout }) => {
 
   return (
     <nav className={styles.container}>
-      <NavLink to='/'><img className={styles.image} src={beerLogo} alt="beer-me logo" /></NavLink>
       {user ? protectedLinks : publicLinks}
     </nav>
   )
