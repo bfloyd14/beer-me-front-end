@@ -6,25 +6,17 @@ import { useParams,NavLink } from 'react-router-dom'
 import styles from './ProfileDetails.module.css'
 
 //service
-import * as profileService from '../../services/profileService'
+// import * as profileService from '../../services/profileService'
 
 
-const ProfileDetails = (props) => {
-  const [profile, setProfile] = useState({})
-  const {profileId} = useParams()
-  const [formData, setFormData] = useState(profileId)
+const ProfileDetails = ({profile, user}) => {
+  const [formData, setFormData] = useState(profile)
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
-  useEffect(() => {
-    const fetchProfileData = async () => {
-      const profileData = await profileService.show(profileId)
-      setProfile(profileData)
-    }
-    fetchProfileData()
-  }, [profileId])
+  
   return ( 
     <>
     <div className={styles.container}>
@@ -48,7 +40,7 @@ const ProfileDetails = (props) => {
             type="text"
             name="email"
             id="email-input"
-            value={props.user.email}
+            value={user.email}
             onChange={handleChange}
           />
         </label>

@@ -20,6 +20,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 // services
 import * as authService from './services/authService'
 import * as beerService from './services/beerService'
+import * as profileService from './services/profileService'
 
 
 // styles
@@ -29,7 +30,9 @@ import BeerDetails from './pages/BeerDetails/BeerDetails'
 function App() {
   const [user, setUser] = useState(authService.getUser())
   const [beers, setBeers] = useState([])
+  const [profile, setProfile] = useState({})
   const navigate = useNavigate()
+  const {profileId} = useParams()
 
   const handleLogout = () => {
     authService.logout()
@@ -50,7 +53,13 @@ function App() {
     if (user) fetchAllBeers()
   }, [user])
 
-
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      const profileData = await profileService.show(profileId)
+      setProfile(profileData)
+    }
+    fetchProfileData()
+  }, [profileId])
 
   const handleAddBeer = async beerFormData => {
     const newBeer = await beerService.create(beerFormData)
@@ -72,7 +81,7 @@ function App() {
 
   return (
     <>
-      <NavBar user={user} handleLogout={handleLogout} />
+      <NavBar profile ={profile} user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route
@@ -87,7 +96,7 @@ function App() {
           path="/profiles/:profileId"
           element={
             <ProtectedRoute user={user}>
-              <ProfileDetails user={user} />
+              <ProfileDetails profile={profile} user={user} />
             </ProtectedRoute>
           }
         />

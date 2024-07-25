@@ -4,10 +4,8 @@ import { NavLink } from 'react-router-dom'
 //css
 import styles from './NavBar.module.css'
 
-//assets
-import beerLogo from '../../assets/images/beer-logo.jpg'
 
-const NavBar = ({ user, handleLogout }) => {
+const NavBar = ({ user, handleLogout, profile }) => {
 
   const publicLinks =(
     <ul>
@@ -18,7 +16,7 @@ const NavBar = ({ user, handleLogout }) => {
 
   const protectedLinks = (
     <ul>
-      <NavLink to='/profiles/:profileId'><img className={styles.image} src={user.profile.photo} alt="beer-me logo" /></NavLink>
+      <NavLink to='/profiles/:profileId'><img className={styles.image} src={profile.photo} alt="beer-me logo" /></NavLink>
       <li><NavLink to='/new'>New Beer</NavLink></li>
       <li><NavLink to='/beers'>Beers</NavLink></li>
       <li><NavLink to="/profiles">Profiles</NavLink></li>
