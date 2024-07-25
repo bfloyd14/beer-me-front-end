@@ -3,12 +3,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 25px;
   border: 2px solid black;
   border-radius: 10px;
   background-color: rgb(250, 249, 247);
   width: 700px; 
-  padding: 25px;
+  padding: 35px;
+  gap: 10px;
+}
+
+.form h1 {
+  margin: 0;
 }
 
 .container {
@@ -23,12 +27,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
 }
 
+.label {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
 
+.label textarea {
+  width: 300px;
+  height: 100px;
+}
 
 select {
-  margin-left: 20px;
+  height: 25px;
 }
 
 

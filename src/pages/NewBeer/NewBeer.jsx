@@ -109,14 +109,14 @@ const NewBeer = (props) => {
         </label>
         <label className={styles.label}>
           Alcohol 
-          <br/>By Volume
+          <br/>By Volume %
           <input
             required
             type="Number"
             name="abv"
             id="abv-input"
             onChange={handleChange}
-          /> %
+          /> 
         </label>
         <label className={styles.label}>
         Review

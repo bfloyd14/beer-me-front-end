@@ -1,13 +1,12 @@
-import AuthorInfo from "../AuthorInfo/AuthorInfo"
 
-const ReviewCard = ({reviews, user, beerId}) => {
+const ReviewCard = (props) => {
+
   return ( 
     <>
       <h2>
-      
-      {reviews.comment}
-      {reviews.rating}
-      {user.name}
+        {props.user.name
+        }
+      {props.review.comment}
       </h2>
     </>
   )

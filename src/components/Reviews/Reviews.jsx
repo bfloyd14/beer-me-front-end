@@ -10,7 +10,7 @@ const Reviews = (props) => {
     key={review._id}
     user={props.user}
     beerId={props.beerId}
-    reviews={props.reviews}
+    review={review}
     />
 
     )}

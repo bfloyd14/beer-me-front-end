@@ -73,8 +73,8 @@ const BeerDetails = (props) => {
         </button>
       </div>
       </>
+      <h1>Reviews</h1>
       <div className={styles.reviews}>
-        <h1>Reviews</h1>
         <Reviews 
         reviews={beers.reviews}
         user={props.user}

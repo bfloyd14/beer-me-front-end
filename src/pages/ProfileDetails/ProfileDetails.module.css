@@ -9,8 +9,8 @@
 
 .container img {
   width: 75px; 
-  margin-top: 15
-  px;
+  display: flex;
+  justify-content: center;
 }
 
 .form {
@@ -38,12 +38,17 @@
 
 .password {
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   display: flex;
 }
 
 .label {
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .edit {

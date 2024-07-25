@@ -37,6 +37,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 2px solid black;
+  border-radius: 6px;
+  background-color: rgb(250, 249, 247);
+  width: 60%;
+  padding: 20px;
 }
 
 .reviews h1 {
