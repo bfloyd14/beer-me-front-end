@@ -3,6 +3,7 @@
   justify-content: space-between;
   background-color: white;
   font-weight: bold;
+  width: 100%;
 }
 
 .image { 
@@ -16,23 +17,38 @@
   margin-bottom: 5px;
 }
 
+ul .profile {
+  display: flex;
+  justify-content: flex-start;
+}
+
+ul .navBar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navBar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  align-items: center;
+}
+
 .container > ul {
   text-decoration: none;
   display: flex;
-  gap: 20px;
+  gap: 30px;
   list-style: none;
   color: black;
-}
-
-.container > a {
-  color: black
-}
-
-
-nav > ul {
+  display: flex;
   margin: 0;
   padding: 16px 32px;
-  
+  width: 100%;
+  font-size: 22px;
+}
+
+.container li {
+  display: flex;
 }
 
 nav {
