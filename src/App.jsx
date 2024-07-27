@@ -30,7 +30,11 @@ import BeerDetails from './pages/BeerDetails/BeerDetails'
 function App() {
   const [user, setUser] = useState(authService.getUser())
   const [beers, setBeers] = useState([])
-  const [profile, setProfile] = useState({})
+  const [profile, setProfile] = useState({
+    name: '',
+    photo:'',
+    email: '',
+  })
   const navigate = useNavigate()
   const {profileId} = useParams()
 

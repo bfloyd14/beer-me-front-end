@@ -4,9 +4,8 @@ const ReviewCard = (props) => {
   return ( 
     <>
       <h2>
-        {props.user.name
-        }
-      {props.review.comment}
+        {props.user.name}
+        {props.review.comment}
       </h2>
     </>
   )
