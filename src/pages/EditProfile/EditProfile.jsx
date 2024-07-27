@@ -1,27 +1,27 @@
+//css
+import styles from './EditProfile.module.css'
+
 //npm modules
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
-//css
-import styles from './ProfileDetails.module.css'
-
-//service
-// import * as profileService from '../../services/profileService'
-
-
-const ProfileDetails = ({profile, user}) => {
-  const [formData, setFormData] = useState(profile)
+const EditProfile = (props) => {
+  const {state} = useLocation()
+  const [formData, setFormData] = useState(state)
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
-  
+  const handleSubmit = (evt) => {
+    evt.preventDefault()
+    props.handleUpdateProfile(formData)
+  }
   return ( 
     <>
     <div className={styles.container}>
-      <form autoComplete="off" className={styles.form}>
-      <h1>My Profile</h1>
+      <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
+      <h1>Edit Profile</h1>
         <label className={styles.label}>
           Username:
           <input
@@ -29,7 +29,7 @@ const ProfileDetails = ({profile, user}) => {
             type="text"
             name="name"
             id="name-input"
-            value={profile.name}
+            value={formData.name}
             onChange={handleChange}
           />
         </label>
@@ -40,7 +40,7 @@ const ProfileDetails = ({profile, user}) => {
             type="text"
             name="email"
             id="email-input"
-            value={user.email}
+            value={formData.email}
             onChange={handleChange}
           />
         </label>
@@ -54,17 +54,11 @@ const ProfileDetails = ({profile, user}) => {
             id="photo-input"
             onChange={handleChange}
           /> <br/>
-          <img src={profile.photo} alt="" />
+          <img src={formData.photo} alt="" />
         </label>
       <div className={styles.edit}>
-
-      <div className={styles.password}>
-        <NavLink to="/auth/change-password">Change Password
-        </NavLink>
-      </div>
       <div className={styles.button}>
-        <NavLink to="/profiles/edit" state={profile}></NavLink>
-        <button>Edit</button>
+        <button>Save</button>
       </div>
       </div>
       </form>
@@ -73,4 +67,4 @@ const ProfileDetails = ({profile, user}) => {
   )
 }
 
-export default ProfileDetails
+export default EditProfile

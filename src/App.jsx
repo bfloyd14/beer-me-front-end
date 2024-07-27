@@ -83,6 +83,12 @@ function App() {
     navigate('/beers')
   }
 
+  const handleUpdateProfile = async profileFormData => {
+    const updatedProfile = await profileService.update(profileFormData)
+    setProfile(profile.map(profile => updatedProfile._id === profile._id ? updatedProfile : profile))
+    navigate('/profiles/:profileId')
+  }
+
   return (
     <>
       <NavBar profile ={profile} user={user} handleLogout={handleLogout} />
@@ -104,6 +110,14 @@ function App() {
             </ProtectedRoute>
           }
         />
+          <Route 
+          path='/profiles/:profileId/edit'
+          element={
+            <ProtectedRoute user={user}>
+              <EditBeer user={user} profile={profile} beers={beers} handleUpdateProfile = {handleUpdateProfile}/>
+            </ProtectedRoute>
+          }
+          />
         <Route
           path="/auth/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}
