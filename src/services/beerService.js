@@ -69,10 +69,27 @@ async function update(beerFormData){
   }
 }
 
+
 async function createReview(beerId, reviewFormData){
   try {
     const res = await fetch(`${BASE_URL}/${beerId}/reviews`, {
       method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(reviewFormData)
+    })
+    return res.json()
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+async function updateReview(beerId, reviewFormData){
+  try {
+    const res = await fetch(`${BASE_URL}/${beerId}/reviews`, {
+      method: 'PUT',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json'
@@ -92,4 +109,5 @@ export {
   deleteBeer as delete,
   update,
   createReview,
+  updateReview,
 }

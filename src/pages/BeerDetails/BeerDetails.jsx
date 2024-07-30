@@ -65,7 +65,6 @@ const BeerDetails = (props) => {
             Rating: {beers.stars}
           </div>
         </div>
-      {/* <AuthorInfo content={beers}/> */}
       {beers.author._id === props.user.profile &&
       <>
         <div className={styles.button}>
@@ -85,6 +84,7 @@ const BeerDetails = (props) => {
         beerId={beerId}
         // handleDeleteReview={handleDeleteReview}
         />
+    
       </div>
       <div className={styles.newReview}>
         <NewReview handleAddReview={handleAddReview} /> 

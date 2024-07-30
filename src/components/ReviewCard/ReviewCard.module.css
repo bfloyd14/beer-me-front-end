@@ -1,3 +1,18 @@
 img {
   width: 50px;
 }
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 50px;
+}
+
+.author {
+  display: flex;
+  flex-direction: column;
+}

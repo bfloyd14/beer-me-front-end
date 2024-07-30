@@ -12,6 +12,8 @@ import NewBeer from './pages/NewBeer/NewBeer'
 import BeerList from './pages/BeerList/BeerList'
 import EditBeer from './pages/EditBeer/EditBeer'
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails'
+import EditProfile from './pages/EditProfile/EditProfile'
+import EditReview from './pages/EditReview/EditReview'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -114,7 +116,7 @@ function App() {
           path='/profiles/:profileId/edit'
           element={
             <ProtectedRoute user={user}>
-              <EditBeer user={user} profile={profile} beers={beers} handleUpdateProfile = {handleUpdateProfile}/>
+              <EditProfile user={user} profile={profile} beers={beers} handleUpdateProfile = {handleUpdateProfile}/>
             </ProtectedRoute>
           }
           />
@@ -154,7 +156,7 @@ function App() {
         path='/beers/:beerId'
         element={
           <ProtectedRoute user={user}>
-            <BeerDetails user={user} handleDeleteBeer = {handleDeleteBeer}/>
+            <BeerDetails user={user} handleDeleteBeer={handleDeleteBeer}/>
           </ProtectedRoute>
         }
         />
@@ -163,6 +165,14 @@ function App() {
         element={
           <ProtectedRoute user={user}>
             <EditBeer user={user} beers={beers} handleUpdateBeer = {handleUpdateBeer}/>
+          </ProtectedRoute>
+        }
+        />
+        <Route 
+        path='/beers/:beerId/reviews/edit'
+        element={
+          <ProtectedRoute user={user}>
+            <EditReview user={user} />
           </ProtectedRoute>
         }
         />

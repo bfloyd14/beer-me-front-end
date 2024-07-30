@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 25px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: rgb(250, 249, 247);
+  width: 700px; 
+  padding: 25px;
+}
+
+.container h2 {
+  margin: 0;
+}
+
+.label input {
+  width: 75px;
+  border-radius: 6px;
+}
+
+.label textarea {
+  width: 250px;
+  height: 75px;
+  border-radius: 6px;
+}
+
+.label {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+input {
+  margin: 0;
+}
