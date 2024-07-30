@@ -4,6 +4,7 @@ import styles from './BeerDetails.module.css'
 //components
 import NewReview from '../../components/NewReview/NewReview'
 import Reviews from '../../components/Reviews/Reviews'
+import AuthorInfo from '../../components/AuthorInfo/AuthorInfo'
 
 //npm modules
 import { useState, useEffect } from 'react'
@@ -11,7 +12,6 @@ import { useParams, NavLink } from 'react-router-dom'
 
 //services
 import * as beerService from '../../services/beerService'
-import AuthorInfo from '../../components/AuthorInfo/AuthorInfo'
 
 const BeerDetails = (props) => {
   const [beers, setBeers] = useState(null)
@@ -31,11 +31,13 @@ const BeerDetails = (props) => {
     setBeers({...beers, reviews: [...beers.reviews, newReview]})
   }
 
-  // const handleDeleteReview = async beerId => {
-  //   const deletedBeer = await beerService.delete(beerId)
-  //   setBeers(beers.filter(beer => beer._id !== deletedBeer._id))
-  //   navigate('/beers')
-  // }
+  const handleDeleteReview = async (beerId, reviewId) => {
+    await beerService.deleteReview(beerId, reviewId)
+    setBeers({
+      ...beers,
+      reviews: beers.reviews.filter(review => review._id !== reviewId)
+  })
+  }
 
   if(!beers) return 'Loading your beer....'
 
@@ -82,7 +84,7 @@ const BeerDetails = (props) => {
         reviews={beers.reviews}
         user={props.user}
         beerId={beerId}
-        // handleDeleteReview={handleDeleteReview}
+        handleDeleteReview={handleDeleteReview}
         />
     
       </div>

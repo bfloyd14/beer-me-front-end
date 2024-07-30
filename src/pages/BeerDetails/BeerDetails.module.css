@@ -44,6 +44,13 @@
   padding: 20px;
 }
 
+.reviews button {
+  font-size: 10px;
+  width: 47px;
+  text-align: center;
+  height: 30px;
+}
+
 .reviews h1 {
   margin: 0;
   padding: 10px;

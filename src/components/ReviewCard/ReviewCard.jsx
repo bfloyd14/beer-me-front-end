@@ -7,7 +7,7 @@ import AuthorInfo from "../AuthorInfo/AuthorInfo"
 //css
 import styles from './ReviewCard.module.css'
 
-const ReviewCard = ({review, user, beerId}) => {
+const ReviewCard = ({review, user, beerId, handleDeleteReview}) => {
 
   return ( 
     <>
@@ -25,11 +25,11 @@ const ReviewCard = ({review, user, beerId}) => {
           to={`/beers/${beerId}/reviews/edit`}
           state={review}
           >
-          Edit
+          <button>Edit</button>
         </NavLink>
-        {/* <button onClick={() => handleDeleteComment(blogId, comment._id)}>
+        <button onClick={() => handleDeleteReview(beerId, review._id)}>
           Delete
-          </button> */}
+          </button>
       </div>
       </>
     }
