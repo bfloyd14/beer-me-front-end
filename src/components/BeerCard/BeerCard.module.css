@@ -4,8 +4,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin: 30px;
 }
+
 
 .card {
   width: 300px;

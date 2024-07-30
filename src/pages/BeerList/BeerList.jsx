@@ -8,6 +8,8 @@ const BeerList = (props) => {
   console.log(props)
   console.log(props.beers)
   return ( 
+  <>
+    <div className={styles.title}>Beer Post's</div>
     <div className={styles.container}>
       {props.beers.map(beer => 
         <BeerCard key={beer._id} beer={beer}/> 
@@ -16,6 +18,7 @@ const BeerList = (props) => {
       
 
     </div>
+  </>
   )
 }
 

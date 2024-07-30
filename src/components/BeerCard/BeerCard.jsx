@@ -9,8 +9,8 @@ import AuthorInfo from '../AuthorInfo/AuthorInfo'
 
 const BeerCard = ({beer}) => {
   return ( 
+    <div className={styles.container}>
     <NavLink to={`/beers/${beer._id}`}>
-      <div className={styles.container}>
         <div className={styles.card}>
           <div className={styles.brewery}>
           <h1>{beer.brewery}</h1>
@@ -23,8 +23,8 @@ const BeerCard = ({beer}) => {
           <AuthorInfo content={beer}/>
         </div>
         </div>
+      </NavLink>
       </div>
-    </NavLink>
     
   )
 }
