@@ -11,6 +11,7 @@ import { useParams, NavLink } from 'react-router-dom'
 
 //services
 import * as beerService from '../../services/beerService'
+import AuthorInfo from '../../components/AuthorInfo/AuthorInfo'
 
 const BeerDetails = (props) => {
   const [beers, setBeers] = useState(null)
@@ -58,21 +59,24 @@ const BeerDetails = (props) => {
             Alcohol By Volume: {beers.abv}%
           </div>
           <div className={styles.feedback}>
-            Review by {beers.author.name}: {beers.feedback}
+            Review: {beers.feedback}
           </div>
           <div className={styles.feedback}>
             Rating: {beers.stars}
           </div>
         </div>
+      {/* <AuthorInfo content={beers}/> */}
+      {beers.author._id === props.user.profile &&
       <>
-      <div className={styles.button}>
-        <NavLink to='/beers/edit' state={beers}>
-          <button>Edit</button>
-        </NavLink>
-        <button onClick={() => props.handleDeleteBeer(beers._id)}>Delete
-        </button>
-      </div>
+        <div className={styles.button}>
+          <NavLink to='/beers/edit' state={beers}>
+            <button>Edit</button>
+          </NavLink>
+          <button onClick={() => props.handleDeleteBeer(beers._id)}>Delete
+          </button>
+        </div>
       </>
+    }
       <h1>Reviews</h1>
       <div className={styles.reviews}>
         <Reviews 

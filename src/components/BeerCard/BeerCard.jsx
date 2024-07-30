@@ -12,13 +12,15 @@ const BeerCard = ({beer}) => {
     <NavLink to={`/beers/${beer._id}`}>
       <div className={styles.container}>
         <div className={styles.card}>
-        <div className={styles.title}>
+          <div className={styles.brewery}>
           <h1>{beer.brewery}</h1>
+          </div>
+          <div className={styles.name}>
           <h2>{beer.name}</h2>
-            {/* <h4>Avg. Rating: {beer.reviews.rating > 0 ? {props.beer.stars + beer.reviews.rating.reduce(a,b => a + b, 0)/beer.reviews.rating.length + 1}  : {beer.stars}}</h4> */}
-        </div>
+          </div>
+            {/* <h4>Avg. Rating: {beer.reviews.rating > 0 ? {beer.stars + beer.reviews.rating.reduce(a,b => a + b, 0)/beer.reviews.rating.length + 1}  : {beer.stars}}</h4> */}
         <div className={styles.author}>
-          <AuthorInfo beer={beer}/>
+          <AuthorInfo content={beer}/>
         </div>
         </div>
       </div>

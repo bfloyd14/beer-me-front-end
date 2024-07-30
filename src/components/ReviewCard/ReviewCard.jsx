@@ -1,12 +1,27 @@
+//npm modules
+import { NavLink } from "react-router-dom"
 
-const ReviewCard = (props) => {
+//components
+import AuthorInfo from "../AuthorInfo/AuthorInfo"
+
+const ReviewCard = ({review, user, beerId}) => {
 
   return ( 
     <>
-      <h2>
-        {props.user.name}
-        {props.review.comment}
-      </h2>
+    <AuthorInfo content={review} />
+    {/* {review.author._id === user.profile &&
+  } */}
+      <>
+        <NavLink 
+          to={`/beers/${beerId}/reviews/edit`}
+          state={review}
+          >
+          Edit
+        </NavLink>
+        {/* <button onClick={() => handleDeleteComment(blogId, comment._id)}>
+          Delete
+        </button> */}
+      </>
     </>
   )
 }
