@@ -32,11 +32,7 @@ import BeerDetails from './pages/BeerDetails/BeerDetails'
 function App() {
   const [user, setUser] = useState(authService.getUser())
   const [beers, setBeers] = useState([])
-  const [profile, setProfile] = useState({
-    name: '',
-    photo:'',
-    email: '',
-  })
+  const [profile, setProfile] = useState([])
   const navigate = useNavigate()
   const {profileId} = useParams()
 
@@ -93,7 +89,7 @@ function App() {
 
   return (
     <>
-      <NavBar profile ={profile} user={user} handleLogout={handleLogout} />
+      <NavBar profile={profile} user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route

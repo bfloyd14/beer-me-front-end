@@ -102,6 +102,18 @@ async function updateReview(beerId, reviewFormData){
   }
 }
 
+async function deleteReview(beerId, reviewId){
+  try {
+    const res = await fetch(`${BASE_URL}/${beerId}/reviews/${reviewId}`, {
+      method: 'DELETE',
+      headers: {'Authorization': `Bearer ${tokenService.getToken()}`}
+    })
+    return res.json()
+  } catch (err) {
+    console.log(err)
+  }
+}
+
 export {
   create,
   index,
@@ -110,4 +122,5 @@ export {
   update,
   createReview,
   updateReview,
-}
+  deleteReview
+  }

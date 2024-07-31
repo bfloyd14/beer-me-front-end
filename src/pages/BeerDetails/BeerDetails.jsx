@@ -46,25 +46,25 @@ const BeerDetails = (props) => {
       <div className={styles.details}>
         <div className={styles.info}>
           <div className={styles.brewery}>
-            Brewery: {beers.brewery}  
+            Brewery: <br/>{beers.brewery}  
           </div>
           <div className={styles.beer}>
-            Name: {beers.name}
+            Name: <br/> {beers.name}
           </div>
           <div className={styles.category}>
-            Category: {beers.category}
+            Category: <br/> {beers.category}
           </div>
           <div className={styles.style}>
-            Style: {beers.style}
+            Style: <br/> {beers.style}
           </div>
           <div className={styles.alcohol}>
-            Alcohol By Volume: {beers.abv}%
+            Alcohol By Volume: <br/> {beers.abv}%
           </div>
           <div className={styles.feedback}>
-            Review: {beers.feedback}
+            Review: <br/> {beers.feedback}
           </div>
           <div className={styles.feedback}>
-            Rating: {beers.stars}
+            Rating: <br/> {beers.stars}
           </div>
         </div>
       {beers.author._id === props.user.profile &&

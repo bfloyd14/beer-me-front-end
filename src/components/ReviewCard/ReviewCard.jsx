@@ -15,6 +15,9 @@ const ReviewCard = ({review, user, beerId, handleDeleteReview}) => {
       <div className={styles.comment}>
         {review.comment}
       </div>
+      <div className={styles.rating}>
+        {review.rating} stars
+      </div>
       <div className={styles.author}>
         <AuthorInfo content={review} />
       </div>

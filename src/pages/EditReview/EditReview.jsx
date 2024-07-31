@@ -50,7 +50,7 @@ const EditReview = () => {
       />
       </label>
         <div className={styles.button}>
-        <button type="submit">Create</button>
+        <button type="submit">Save</button>
         </div>
       </form>   
     </div>
